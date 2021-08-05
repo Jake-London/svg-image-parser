@@ -1,0 +1,284 @@
+html {
+    width: 60%;
+    height: 100%;
+    min-height: 100%;
+    margin: 0 auto;
+    font-size: 16px;
+    background-color: #FFFFFF;
+}
+body {
+    height: 100%;
+    min-height: 100%;
+    line-height: 1.75;
+    background-color: #FFFFFF;
+    width: 100%;
+}
+a:link:hover {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    text-decoration: underline;
+    cursor: pointer;
+    cursor: hand;
+}
+input[type=submit], button {
+    cursor: pointer;
+    cursor: hand;
+}
+@media(max-width: 900px) {
+    html {
+        font-size: 14px !important;
+        width: 80% !important;
+    }
+}
+@media(max-width: 480px) {
+    html {
+        font-size: 12px !important;
+        width: 90% !important;
+    }
+}
+@media(max-width: 320px) {
+    html {
+        font-size: 12px !important;
+        width: 100% !important;
+    }
+}
+
+#file-log-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#file-log-panel tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+#file-log-panel tr td a img {
+    width: 200px; 
+}
+
+td {
+    text-align: center;
+}
+
+th {
+    text-align: center;
+    color: #fff;
+    background-color: #3A5894;
+    padding: 10px 15px;
+}
+
+#flp-header {
+    height: 100%;
+}
+
+#panel-2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#panel-2-heading, .component {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#panel-2-heading h4 {
+    font-size: 110%;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(85, 110, 160);
+    color: #fff;
+}
+
+.section-1 {
+    flex: 1;
+    text-align: center;
+}
+
+.section-2 {
+    flex: 2;
+    text-align: center;
+}
+
+.section-3 {
+    flex: 1;
+    text-align: center;
+}
+
+#panel-1 {
+    display: flex;
+    flex-direction: column;
+}
+
+#info-cont {
+    display: flex;
+}
+
+#title-cont {
+    flex: 1;
+}
+
+#title, #description {
+    text-align: center;
+}
+
+#desc-cont {
+    flex:2;
+}
+
+#info-cont h4 {
+    text-align: center;
+    background-color: rgb(85, 110, 160);
+    color: #fff;
+    padding: 10px;
+    font-size: 110%;
+}
+
+#image-cont {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+#image-cont > img {
+    width: 800px;
+    
+}
+
+#attribute-info-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.attr-info-sub {
+    display: flex;
+}
+
+.attr-info-sub h4, .attr-info-sub p {
+    flex: 1;
+    text-align: center;
+}
+
+#infoEdit, #attrEdit, #addRect, #addCircle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#infoEdit > div {
+    display: flex;
+}
+
+#infoEdit > div #editTitle, #editDesc, #attrName, #attrVal, .input-style {
+    margin: 10px 5px;
+    border: none;
+    background-color: #F5F5F5;
+    padding: 5px 10px;
+}
+
+#infoSubmit, #attrSubmit, .submit-style {
+    margin: 10px 5px;
+    border: none;
+    background-color: #3A5894;
+    color: #fff;
+    padding: 5px 10px;
+}
+
+.view-panel-div, .attributes-select-div, .edit-attribute-div, .add-shape-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#view-panel-select, #show-attributes-select, #edit-attribute-select, #add-file, query-select {
+    background-color: #F5F5F5;
+    margin: 10px 5px;
+    padding: 5px 10px;
+    vertical-align: middle;
+    border: none;
+    color: #000;
+}
+
+#upload-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#upload-form > #submit {
+    margin: 10px 5px;
+    border: none;
+    background-color: #3A5894;
+    color: #fff;
+    padding: 5px 10px;
+}
+
+#attribute-info-panel h4 {
+    text-align: center;
+    background-color: rgb(85, 110, 160);
+    color: #fff;
+    padding: 10px;
+    font-size: 110%;
+}
+
+.attributes-select-div {
+    display: flex;
+}
+
+.add-shape-h4 {
+    font-size: 120%;
+}
+
+#main-cont {
+    width: 100%;
+}
+
+#a4 {
+    
+    width: 100%;
+}
+
+#a4-sub {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#store-files-form, #clear-tables-form, #db-status-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#upload-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 300;
+}
+
+#login-cont {
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#login-form > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

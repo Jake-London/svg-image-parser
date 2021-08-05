@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CHANGE ME</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="CHANGE ME">
+    <meta name="keywords" content="CHANGE ME">
+    <meta name="author" content="CHANGE ME">
+    <!-- Load jquery, bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <!-- Custom CSS End -->
+</head>
+<body>
+        <!-- <h3>Download test</h3>
+        If the A3 stub is running and simple.gpx exists in the uploads/ directory on the server, then clicking on the link below will download it from the server.<br>
+        <a href="rects.svg">rects.svg</a>
+        <p></p>
+        <img src="rects.svg">
+
+        <hr>
+        <div id="blah">I am blah</div>
+        <hr>
+        <form ref='someform'
+            id='someform'>
+            <div class="form-group">
+                    <label for="entryBox">Last Name</label>
+                    <input type="text" class="form-control" id="entryBox" value="Value" placeholder="Placeholder">
+                </div>
+            <div class="form-group">
+                <input type='submit' class="btn btn-secondary">
+            </div>
+        </form> -->
+
+    <div id="login-cont">
+        <form action="/asyncDB" method="POST" id="login-form">
+            <div>
+                <h4>Login</h4>
+            </div>
+
+            <input type="text" name="username" id="username" class="input-style" placeholder="Username">
+
+            <input type="text" name="password" id="password" class="input-style" placeholder="Password">
+
+            <input type="text" name="database" id="database" class="input-style" placeholder="Database">
+            
+            <div>
+                <input type="submit" name="submit" id="submit-login" class="submit-style">
+            </div>
+        </form>
+    </div>
+
+    <div id="main-cont" hidden>
+        <div class="section-title">
+            <h4>File Log Panel</h4>
+        </div>
+
+        <table id="file-log-panel">
+            <tr id="flp-header">
+                <th>Image (click to download)</th>
+                <th>File name (click to download)</th>
+                <th>File size</th>
+                <th>Number of rectangles</th>
+                <th>Number of circles</th>
+                <th>Number of paths</th>
+                <th>Number of groups</th>
+            </tr>
+        </table>
+
+        <div id="upload-heading">
+            <h4>Upload File</h4>
+        </div>
+
+        <form action="/upload" id="upload-form" method="POST" enctype="multipart/form-data">
+            
+            <input type="file" name="uploadFile" id="uploadFile">
+            <input type="submit" name="submit" id="submit">
+            
+        </form>
+
+        <hr>
+
+        <div class="view-panel-div">
+            <label for="view-panel-select">Select a file to view: </label>
+            <select name="view-panel-select" id="view-panel-select">
+                
+            </select>
+        </div>
+        <br>
+
+        <div id="svg-view-panel">
+            <div id="panel-1">
+                <div id="image-cont">
+                    
+                </div>
+                <div id="info-cont">
+                    <div id="title-cont">
+                        <h4>Title</h4>
+                        <p id="title"></p>
+                    </div>
+                    <div id="desc-cont">
+                        <h4>Description</h4>
+                        <p id="description"></p>
+                    </div>
+                </div>
+            </div>
+            <div id="panel-2">
+                <div id="panel-2-heading">
+                    <h4 class="section-1">Component</h4>
+                    <h4 class="section-2">Summary</h4>
+                    <h4 class="section-3">Other attributes</h4>
+                </div>
+                
+                <div id="circle1" class="component">
+                    
+                </div>
+            </div>
+        </div>
+
+        <form action="/editname" id="infoEdit" method="POST" name="infoEdit">
+            <div>
+                <input type="text" id="editTitle" name="editTitle" required maxlength="255" placeholder="New Title">
+                <input type="text" id="editDesc" name="editDesc" required maxlength="255" placeholder="New Description">
+                <input type="submit" name="infoSubmit" id="infoSubmit">
+            </div>
+            
+        </form>
+
+        <hr>
+
+        <div class="attributes-select-div">
+            <label for="show-attributes-select">Select a component to see attributes: </label>
+            <select name="show-attributes-select" id="show-attributes-select">
+                
+            </select>
+        </div>
+
+        <br>
+
+        <div id="attribute-info-panel">
+            <div id="attribute-info-heading" class="attr-info-sub">
+                <h4>Id</h4>
+                <h4>Name</h4>
+                <h4>Value</h4>
+            </div>
+
+            <div class="attribute attr-info-sub">
+                
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="edit-attribute-div">
+            <label for="edit-attribute-select">Select an attribute to edit for the selected component:</label>
+            <select name="edit-attribute-select" id="edit-attribute-select">
+
+            </select>
+        </div>
+
+        <form action="/editattribute" id="attrEdit" name="attrEdit" method="POST">
+            <div>
+                <input type="text" id="attrName" name="attrName" placeholder="Attribute Name">
+                <input type="text" id="attrVal" name="attrVal" placeholder="Attribute Value">
+                <input type="submit" id="attrSubmit">
+            </div>
+        </form>
+        <br>
+        <hr>
+
+        <h4 class="add-shape-h4">Choose a file to add a rectangle or circle to:</h4>
+        <div class="add-shape-div">
+            <select name="add-file" id="add-file">
+                
+            </select>
+        </div>
+        <br>
+
+        <h4 class="add-shape-h4">Add Rectangle</h4>
+        <br>
+        
+
+        <form action="/addrectangle" id="addRect" name="addRect" method="POST">
+            <div>
+                <input type="text" id="x" name="x" placeholder="X" class="input-style">
+                <input type="text" id="y" name="y" placeholder="Y" class="input-style">
+                <input type="text" id="width" name="width" placeholder="Width" class="input-style">
+                <input type="text" id="height" name="height" placeholder="Height" class="input-style">
+                <input type="text" id="rect-units" name="rect-units" placeholder="Units" class="input-style">
+                <input type="submit" class="submit-style">
+            </div>
+        </form>
+        <br>
+        <h4 class="add-shape-h4">OR Add a circle</h4>
+        <br>
+        <form action="/addcircle" id="addCircle" name="addCircle" method="POST">
+            <div>
+                <input type="text" id="cx" name="cx" placeholder="CX" class="input-style">
+                <input type="text" id="cy" name="cy" placeholder="CY" class="input-style">
+                <input type="text" id="r" name="r" placeholder="R" class="input-style">
+                <input type="text" id="circle-units" name="circle-units" placeholder="Units" class="input-style">
+                <input type="submit" class="submit-style">
+            </div>
+        </form>
+
+        <br>
+        <br>
+        <br>
+
+        
+        
+        <div id="a4">
+
+            
+            <h4>A4 Functions</h4>
+
+            <hr>
+            
+            
+            <form action="/storefiles" id="store-files-form" method="POST" hidden>
+                <input type="submit" class="submit-style" id="store-files-submit" value="Store Files">
+            </form>
+
+            
+
+            <form action="/cleartables" id="clear-tables-form" method="POST" hidden>
+                <input type="submit" class="submit-style" id="clear-tables-submit" value="Clear All Data">
+            </form>
+
+            
+
+            <form action="/dbstatus" id="db-status-form" method="POST" hidden>
+                <input type="submit" class="submit-style" id="db-status-submit" value="Display DB Status">
+            </form>
+            
+            
+            <hr>
+            <div id="a4-sub">
+                <label for="query-select">Select a query to execute</label>
+                <select name="query-select" id="query-select">
+                    <option value="showAll">Show all files</option>
+                    <option value="showCreateDates">Show all files created between dates</option>
+                    <option value="showModifiedDates">Show all files modified between dates</option>
+                    
+                </select>
+<br>
+                <form action="/getcreateddates" id="get-created-dates" method="POST" hidden>
+                    <p>Enter date values to check between (HH must be 24-hour clock time, space between date and time required):</p>
+                    <input type="text" name="created-date-1" id="created-date-1" class="input-style" placeholder="YYYY-MM-DD HH:MM:SS">
+                    <input type="text" name="created-date-2" id="created-date-2" class="input-style" placeholder="YYYY-MM-DD HH:MM:SS">
+                    <input type="submit" class="submit-style" id="get-created-dates-submit">
+                </form>
+
+                <form action="/getchangeddates" id="get-changed-dates" method="POST" hidden>
+                    <p>Enter date values to check between (HH must be 24-hour clock time, space between date and time required):</p>
+                    <input type="text" name="created-date-1" id="changed-date-1" class="input-style" placeholder="YYYY-MM-DD HH:MM:SS">
+                    <input type="text" name="created-date-2" id="changed-date-2" class="input-style" placeholder="YYYY-MM-DD HH:MM:SS">
+                    <input type="submit" class="submit-style" id="get-changed-dates-submit">
+                </form>
+
+                <br>
+
+                <div id="query-table-cont">
+                    <table id="query-table">
+
+                    </table>
+                </div>
+                <br>
+            </div>
+                
+        </div>
+
+        
+
+        
+    </div>
+        
+        <!-- Leave me at the bottom of body -->
+        <script src="/index.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
